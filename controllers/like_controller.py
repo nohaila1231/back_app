@@ -10,7 +10,7 @@ like_bp = Blueprint('like', __name__)
 logger = logging.getLogger(__name__)
 
 @like_bp.route('/<int:movie_id>/likes', methods=['POST', 'DELETE', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def handle_movie_likes(movie_id):
     if request.method == 'OPTIONS':
         return '', 200
@@ -58,7 +58,7 @@ def handle_movie_likes(movie_id):
 
 # NOUVEAU: Endpoint spécifique pour récupérer les likes d'un utilisateur
 @like_bp.route('/<int:user_id>/likes', methods=['GET', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def get_user_likes(user_id):
     if request.method == 'OPTIONS':
         return '', 200
@@ -95,7 +95,7 @@ def get_user_likes(user_id):
         return jsonify({'error': f'Erreur interne: {str(e)}'}), 500
 
 @like_bp.route('/<int:movie_id>/likes/count', methods=['GET', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def get_movie_likes_count(movie_id):
     if request.method == 'OPTIONS':
         return '', 200

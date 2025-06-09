@@ -32,7 +32,7 @@ def test_cors_and_endpoints():
     # Test OPTIONS pour CORS
     try:
         headers = {
-            'Origin': 'http://localhost:5173',
+            'Origin': 'https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app',
             'Access-Control-Request-Method': 'GET',
             'Access-Control-Request-Headers': 'Content-Type'
         }
@@ -84,7 +84,7 @@ def test_user_stats_endpoint():
         # Test de l'endpoint
         url = f"http://localhost:5000/api/users/{user_id}/stats"
         headers = {
-            'Origin': 'http://localhost:5173',
+            'Origin': 'https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app',
             'Content-Type': 'application/json'
         }
         

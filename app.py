@@ -32,12 +32,12 @@ CORS(app,
      supports_credentials=True, 
      resources={
          r"/api/*": {
-             "origins": ["http://localhost:5173", "http://127.0.0.1:5173"], 
+             "origins": ["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"], 
              "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
              "allow_headers": ["Content-Type", "Authorization", "X-Requested-With"]
          },
          r"/static/*": {
-             "origins": ["http://localhost:5173", "http://127.0.0.1:5173"], 
+             "origins": ["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"], 
              "methods": ["GET", "OPTIONS"]
          }
      },

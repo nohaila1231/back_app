@@ -58,12 +58,12 @@ def generate_token(user_id):
     return jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
 @user_bp.route('/<path:path>', methods=['OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def options_handler(path):
     return '', 200
 
 @user_bp.route('/upload-image/<int:id>', methods=['POST', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def upload_image(id):
     if request.method == 'OPTIONS':
         return '', 200
@@ -168,7 +168,7 @@ def upload_image(id):
         return jsonify({'error': f'Erreur lors de l\'enregistrement de l\'image: {str(e)}'}), 500
 
 @user_bp.route('/<int:id>', methods=['PUT', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def update_user(id):
     if request.method == 'OPTIONS':
         return '', 200
@@ -193,7 +193,7 @@ def update_user(id):
         return jsonify({'error': f'Erreur lors de la mise à jour: {str(e)}'}), 500
 
 @user_bp.route('/signup', methods=['POST', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def signup():
     if request.method == 'OPTIONS':
         return '', 200
@@ -243,7 +243,7 @@ def signup():
         return jsonify({'error': f'Erreur lors de l\'inscription: {str(e)}'}), 500
 
 @user_bp.route('/signin', methods=['POST', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def signin():
     if request.method == 'OPTIONS':
         return '', 200
@@ -347,7 +347,7 @@ def signin():
         return jsonify({'error': 'Format de données invalide'}), 400
 
 @user_bp.route('/signout', methods=['POST', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def signout():
     if request.method == 'OPTIONS':
         return '', 200
@@ -371,7 +371,7 @@ def signout():
         return jsonify({'error': f'Erreur lors de la déconnexion: {str(e)}'}), 500
 
 @user_bp.route('/me', methods=['GET', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def get_current_user():
     if request.method == 'OPTIONS':
         return '', 200
@@ -403,7 +403,7 @@ def get_current_user():
     }), 200
 
 @user_bp.route('/verify', methods=['POST', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def verify_token():
     if request.method == 'OPTIONS':
         return '', 200
@@ -462,7 +462,7 @@ def verify_token():
         return jsonify({'error': f'Erreur interne du serveur: {str(e)}'}), 500
 
 @user_bp.route('/<int:id>', methods=['GET', 'PUT', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def get_user(id):
     if request.method == 'OPTIONS':
         return '', 200
@@ -495,11 +495,11 @@ def get_user(id):
         return jsonify(user.to_dict()), 200
 
 @user_bp.route('/<int:id>/stats', methods=['GET', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173", "http://127.0.0.1:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def get_user_stats(id):
     if request.method == 'OPTIONS':
         response = jsonify({})
-        response.headers.add('Access-Control-Allow-Origin', 'http://localhost:5173')
+        response.headers.add('Access-Control-Allow-Origin', 'https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app')
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
         response.headers.add('Access-Control-Allow-Methods', 'GET,OPTIONS')
         response.headers.add('Access-Control-Allow-Credentials', 'true')
@@ -507,7 +507,7 @@ def get_user_stats(id):
         
     # Ajouter des en-têtes CORS à la réponse
     def add_cors_headers(response):
-        response.headers.add('Access-Control-Allow-Origin', 'http://localhost:5173')
+        response.headers.add('Access-Control-Allow-Origin', 'https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app')
         response.headers.add('Access-Control-Allow-Credentials', 'true')
         return response
         

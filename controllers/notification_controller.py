@@ -8,12 +8,12 @@ notification_bp = Blueprint('notification', __name__)
 logger = logging.getLogger(__name__)
 
 @notification_bp.route('/<path:path>', methods=['OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def options_handler(path):
     return '', 200
 
 @notification_bp.route('/user/<int:user_id>', methods=['GET', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def get_user_notifications(user_id):
     """Récupérer toutes les notifications d'un utilisateur"""
     if request.method == 'OPTIONS':
@@ -40,7 +40,7 @@ def get_user_notifications(user_id):
         return jsonify({'error': 'Erreur interne du serveur'}), 500
 
 @notification_bp.route('/user/<int:user_id>/unread-count', methods=['GET', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def get_unread_count(user_id):
     """Récupérer le nombre de notifications non lues"""
     if request.method == 'OPTIONS':
@@ -59,7 +59,7 @@ def get_unread_count(user_id):
         return jsonify({'error': 'Erreur interne du serveur'}), 500
 
 @notification_bp.route('/<int:notification_id>/mark-read', methods=['PUT', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def mark_notification_read(notification_id):
     """Marquer une notification comme lue"""
     if request.method == 'OPTIONS':
@@ -80,7 +80,7 @@ def mark_notification_read(notification_id):
         return jsonify({'error': 'Erreur interne du serveur'}), 500
 
 @notification_bp.route('/user/<int:user_id>/mark-all-read', methods=['PUT', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def mark_all_notifications_read(user_id):
     """Marquer toutes les notifications comme lues"""
     if request.method == 'OPTIONS':
@@ -100,7 +100,7 @@ def mark_all_notifications_read(user_id):
         return jsonify({'error': 'Erreur interne du serveur'}), 500
 
 @notification_bp.route('/<int:notification_id>', methods=['DELETE', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def delete_notification(notification_id):
     """Supprimer une notification"""
     if request.method == 'OPTIONS':

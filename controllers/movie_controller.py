@@ -6,7 +6,7 @@ from database.db import db
 movie_bp = Blueprint('movie', __name__)
 
 @movie_bp.route('/', methods=['GET', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def get_all_movies():
     if request.method == 'OPTIONS':
         return '', 200
@@ -14,7 +14,7 @@ def get_all_movies():
     return jsonify([movie.to_dict() for movie in movies])
 
 @movie_bp.route('/<int:id>', methods=['GET', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def get_single_movie(id):
     if request.method == 'OPTIONS':
         return '', 200
@@ -24,7 +24,7 @@ def get_single_movie(id):
     return jsonify({'error': 'Film non trouvé'}), 404
 
 @movie_bp.route('/', methods=['POST', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def create_movie():
     if request.method == 'OPTIONS':
         return '', 200
@@ -42,7 +42,7 @@ def create_movie():
     return jsonify({'error': 'Erreur lors de la création'}), 400
 
 @movie_bp.route('/check-or-create', methods=['POST', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def check_or_create_movie():
     if request.method == 'OPTIONS':
         return '', 200
@@ -59,7 +59,7 @@ def check_or_create_movie():
     return jsonify({'error': 'Erreur lors de la vérification ou création du film'}), 500
 
 @movie_bp.route('/<int:id>', methods=['PUT', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def update_movie(id):
     if request.method == 'OPTIONS':
         return '', 200
@@ -78,7 +78,7 @@ def update_movie(id):
     return jsonify({'error': 'Film non trouvé'}), 404
 
 @movie_bp.route('/<int:id>', methods=['DELETE', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def delete_movie(id):
     if request.method == 'OPTIONS':
         return '', 200
@@ -89,7 +89,7 @@ def delete_movie(id):
 
 # Ajout de la route pour enregistrer les clics
 @movie_bp.route('/<int:movie_id>/clicks', methods=['POST', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def record_click(movie_id):
     if request.method == 'OPTIONS':
         return '', 200

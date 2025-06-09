@@ -13,12 +13,12 @@ comment_bp = Blueprint('comment', __name__)
 logger = logging.getLogger(__name__)
 
 @comment_bp.route('/<path:path>', methods=['OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def options_handler(path):
     return '', 200
 
 @comment_bp.route('/<int:movie_id>/comments/', methods=['GET', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def get_comments(movie_id):
     """Récupérer tous les commentaires d'un film"""
     if request.method == 'OPTIONS':
@@ -75,7 +75,7 @@ def get_comments(movie_id):
         return jsonify({'error': 'Erreur interne du serveur'}), 500
 
 @comment_bp.route('/<int:movie_id>/comments/', methods=['POST', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def add_comment(movie_id):
     """Ajouter un nouveau commentaire"""
     if request.method == 'OPTIONS':
@@ -121,7 +121,7 @@ def add_comment(movie_id):
         return jsonify({'error': 'Erreur interne du serveur'}), 500
 
 @comment_bp.route('/<int:movie_id>/comments/<int:comment_id>/like', methods=['POST', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def like_comment(movie_id, comment_id):
     """Liker/unliker un commentaire"""
     if request.method == 'OPTIONS':
@@ -175,7 +175,7 @@ def like_comment(movie_id, comment_id):
         return jsonify({'error': 'Erreur interne du serveur'}), 500
 
 @comment_bp.route('/<int:movie_id>/comments/<int:comment_id>', methods=['PUT', 'DELETE', 'OPTIONS'])
-@cross_origin(supports_credentials=True, origins=["http://localhost:5173"])
+@cross_origin(supports_credentials=True, origins=["https://client-enqldel1w-louraknouhaila-5950s-projects.vercel.app"])
 def manage_comment(movie_id, comment_id):
     """Modifier ou supprimer un commentaire"""
     if request.method == 'OPTIONS':
