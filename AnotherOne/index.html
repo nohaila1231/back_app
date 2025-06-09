@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Test Firebase Auth</title>
+  <!-- Utilise les SDK Compatibles -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <h2>Connexion Firebase avec Google</h2>
+  <button id="login">Se connecter avec Google</button>
+
+  <script>
+    // ✅ Configuration Firebase correcte
+    const firebaseConfig = {
+      apiKey: "AIzaSyDkSqyff-396R7sLcH-jT6_SdXtjYxRyaw",
+      authDomain: "recommendationffilm.firebaseapp.com",
+      projectId: "recommendationffilm",
+      storageBucket: "recommendationffilm.appspot.com",
+      messagingSenderId: "1070862765035",
+      appId: "1:1070862765035:web:cbcde6514ebf34e385e7ae",
+      measurementId: "G-LTP0P71S3S"
+    };
+
+    // ✅ Initialisation de Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // ✅ Connexion avec Google
+    document.getElementById('login').addEventListener('click', () => {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      auth.signInWithPopup(provider)
+        .then((result) => {
+          return result.user.getIdToken();
+        })
+        .then((idToken) => {
+          console.log("ID Token:", idToken);
+          alert("Connexion réussie !");
+          // Tu peux ensuite envoyer ce token à ton backend Flask
+        })
+        .catch((error) => {
+          console.error("Erreur lors de l'authentification:", error);
+          alert("Erreur : " + error.message);
+        });
+    });
+  </script>
+</body>
+</html>
